@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" hidden>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel='stylesheet' type='text/css' href='./css/cchs-cs-launch-core.css'>
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib-->
+      <link rel='stylesheet' type='text/css' href='./css/cerner-smart-embeddable-lib-1.0.0.min.css'>
+
+    <title>Quick View</title>
+  </head>
+  <body>
+    <!-- Required JS files to enable this page to embed within an MPage -->
+    <!--
+      Temporarily disable cerner-smart-embeddable-lib -->
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script>
+      <script src='./lib/cerner-smart-embeddable-lib-1.0.0.min.js'></script>
+    
+
+    <!-- FHIR Client JS Library -->
+    <script src='./lib/fhir-client-v0.1.12.js'></script>
+
+    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+    <!-- https://github.com/cerner/fhir-client-cerner-additions -->
+    <script src='./lib/fhir-client-cerner-additions-1.0.0.js'></script>
+
+    <script>
+
+      FHIR.oauth2.authorize({
+        client:{
+          'client_id': '701c3165-261c-445e-a220-4daa378d120a',
+          'scope':    'patient/AllergyIntolerance.read '+
+                      'patient/Appointment.read '+
+                      'patient/Binary.read '+
+                      'patient/CarePlan.read '+
+                      'patient/Condition.read '+
+                      'patient/Contract.read '+
+                      'patient/Device.read '+
+                      'patient/DiagnosticReport.read '+
+                      'patient/DocumentReference.read '+
+                      'patient/Encounter.read '+
+                      'patient/Goal.read '+
+                      'patient/Immunization.read '+
+                      'patient/MedicationAdministration.read '+
+                      'patient/MedicationOrder.read '+
+                      'patient/MedicationStatement.read '+
+                      'patient/Observation.read '+
+                      'patient/Patient.read '+
+                      'patient/Person.read '+
+                      'patient/Procedure.read '+
+                      'patient/ProcedureRequest.read '+
+                      'patient/RelatedPerson.read '+
+                      'patient/Schedule.read '+
+                      'patient/Slot.read '+
+                      'patient/AllergyIntolerance.write '+
+                      'patient/Appointment.write '+
+                      'patient/Condition.write '+
+                      'patient/DocumentReference.write '+
+                      'patient/MedicationStatement.write '+
+                      'patient/Patient.write '+
+                      'launch online_access openid profile'
+        }
+      });
+    </script>
+    <div class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </body>
+</html>
